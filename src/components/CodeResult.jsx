@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     background: color.white,
     [theme.breakpoints.down("sm")]: {
       minWidth: "90%",
+      marginTop: "8%",
     },
   },
   typo: {
