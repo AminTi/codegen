@@ -32,18 +32,32 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CodeGen = () => {
-  const [inputValue, setInputValue] = useState(15);
   const classes = useStyles();
+  const [inputValue, setInputValue] = useState(15);
+
+  const [upperCase, setUppercase] = useState(false);
+  const [lowerCase, setLowercase] = useState(false);
+  const [numbers, setNumbers] = useState(false);
+  const [symbols, setSymbols] = useState(false);
 
   return (
     <Container maxWidth="xl" className={classes.root}>
       <CodeResult />
       <Paper className={classes.box}>
         <Slider inputValue={inputValue} setInputValue={setInputValue} />
-
-        {["UpperCase", "LowerCase", "Numbers", "Symbols"].map((item, index) => {
-          return <CheckBox text={item} key={index} />;
-        })}
+        <CheckBox
+          name="checkedB"
+          text={"Uppercase"}
+          check={upperCase}
+          setCheck={setUppercase}
+        />
+        <CheckBox
+          text={"lowerCase"}
+          check={lowerCase}
+          setCheck={setLowercase}
+        />
+        <CheckBox text={"Numbers"} check={numbers} setCheck={setNumbers} />
+        <CheckBox text={"Symbols"} check={symbols} setCheck={setSymbols} />
       </Paper>
       <Button text={"Generate"} />
     </Container>

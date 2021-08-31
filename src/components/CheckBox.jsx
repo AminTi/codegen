@@ -17,21 +17,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Checkboxes({ text }) {
+export default function Checkboxes({ text, check, setCheck }) {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
 
   return (
     <div>
       <Box className={classes.root}>
         <Typography className={classes.Typography}>{text}</Typography>
         <Checkbox
-          checked={checked}
-          onChange={handleChange}
+          check={check}
+          onChange={() => setCheck(!check)}
           inputProps={{ "aria-label": "primary checkbox" }}
         />
       </Box>
