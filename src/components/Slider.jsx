@@ -12,18 +12,23 @@ import { minHeight } from "@material-ui/system";
 const useStyles = makeStyles((theme) => ({
   test: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      flexDirection: "row",
+      padding: "10px 100px",
+    },
   },
   root: {
-    minWidth: 300 + theme.spacing(3) * 2,
+    minWidth: "90%",
   },
-
   margin: {
-    height: theme.spacing(3),
+    // height: theme.spacing(3),
   },
   title: {
     fontWeight: "bold",
     color: color.black,
+    padding: "10px 20px",
   },
   paper: {
     padding: "30px 30px",
@@ -34,18 +39,23 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     border: `0.5px solid ${color.grey}`,
   },
+  wrap: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "10px 20px",
+    },
+  },
 }));
 
 const PrettoSlider = withStyles({
   root: {
     color: color.red,
-    height: 8,
+    // height: 100,
   },
   thumb: {
     height: 24,
     width: 24,
     backgroundColor: "#fff",
-    border: "2px solid currentColor",
+    border: "5px solid currentColor",
     marginTop: -8,
     marginLeft: -12,
     "&:focus, &:hover, &$active": {
@@ -66,21 +76,17 @@ const PrettoSlider = withStyles({
   },
 })(Slider);
 
-export default function CustomizedSlider() {
+export default function CustomizedSlider({ inputValue, setInputValue }) {
   const classes = useStyles();
-  const [inputValue, setInputValue] = useState(15);
-
-  console.log(inputValue);
   return (
     <div className={classes.test}>
       <Paper className={classes.paper}>{inputValue}</Paper>
-
       <div className={classes.root}>
         <div className={classes.margin} />
-        <div>
-          <Typography gutterBottom className={classes.title}>
-            Password Length
-          </Typography>
+        <Typography gutterBottom className={classes.title}>
+          Password Length
+        </Typography>
+        <div className={classes.wrap}>
           <PrettoSlider
             onChange={(_, value) => setInputValue(value)}
             defaultValue={15}

@@ -6,18 +6,21 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import CachedIcon from "@material-ui/icons/Cached";
 import { IconButton } from "@material-ui/core";
 import color from "../styles/color";
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "row",
     minWidth: "50%",
     background: color.white,
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "90%",
+    },
   },
   typo: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "20px 50px",
+    padding: "5px 10px",
   },
   box: {
     marginLeft: "auto",

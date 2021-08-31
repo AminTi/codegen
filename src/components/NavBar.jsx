@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "25px",
     color: color.red,
     fontWeight: "bold",
-    [theme.breakpoints.down("xs")]: {},
+    [theme.breakpoints.down("sm")]: {
+      textAling: "center",
+    },
   },
   icons: {
     color: color.green,
