@@ -74,7 +74,6 @@ const CodeGen = () => {
   const numbersGenFunc = () => {
     let val = Math.floor(inputValue / 2);
     const newArr = lowerAndupperCaseFuc().slice(0, val);
-
     let arr = [];
     let numbers = [...Array(100)].forEach((e, i) => {
       arr.push(++i);
@@ -84,8 +83,19 @@ const CodeGen = () => {
     return ar.sort(() => Math.random() - Math.random());
   };
 
+  const symbolsGenFunc = () => {
+    let val = Math.floor(inputValue / 2);
+    let newArr = numbersGenFunc().slice(0, val);
+    let symbolsARr = symbolsArr.sort(() => Math.random() - Math.random());
+    let symbol = symbolsARr.slice(0, val);
+    let ar = [...symbol, ...newArr].sort(() => Math.random() - Math.random());
+    return ar;
+  };
+
   const generatecode = () => {
-    if (upperCase && lowerCase && numbers == true) {
+    if (upperCase && lowerCase && numbers && symbols == true) {
+      return symbolsGenFunc().join("");
+    } else if (upperCase && lowerCase && numbers == true) {
       return numbersGenFunc().join("");
     } else if (upperCase && lowerCase == true) {
       return lowerAndupperCaseFuc().join("");
@@ -96,7 +106,7 @@ const CodeGen = () => {
     }
   };
 
-  console.log("Amin Titi =>", generatecode());
+  console.log("Amin Titi =>", symbolsGenFunc());
 
   return (
     <Container maxWidth="xl" className={classes.root}>
