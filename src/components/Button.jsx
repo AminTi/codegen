@@ -13,11 +13,15 @@ const useStyles = makeStyles({
   },
 });
 
-const Buttons = ({ text }) => {
+const Buttons = ({ text, clickHandler }) => {
   const classes = useStyles();
   return (
     <>
-      <Button variant="contained" className={classes.btn}>
+      <Button
+        variant="contained"
+        className={classes.btn}
+        onClick={clickHandler}
+      >
         {text}
       </Button>
     </>

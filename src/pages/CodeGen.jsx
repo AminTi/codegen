@@ -46,7 +46,6 @@ const CodeGen = () => {
       <Paper className={classes.box}>
         <Slider inputValue={inputValue} setInputValue={setInputValue} />
         <CheckBox
-          name="checkedB"
           text={"Uppercase"}
           check={upperCase}
           setCheck={setUppercase}
