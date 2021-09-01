@@ -31,11 +31,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CodeResult = () => {
+const CodeResult = ({ generatecode }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
-      <Typography className={classes.typo}>fre954095455435343543</Typography>
+      <Typography className={classes.typo}>
+        {" "}
+        {null || generatecode()}
+      </Typography>
       <div className={classes.box}>
         <IconButton>
           <CachedIcon />

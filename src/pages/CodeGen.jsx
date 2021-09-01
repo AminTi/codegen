@@ -40,9 +40,67 @@ const CodeGen = () => {
   const [numbers, setNumbers] = useState(false);
   const [symbols, setSymbols] = useState(false);
 
+  const symbolsArr = ["!", "#", "€", "%", "&", "/", "=", "+", "?"];
+  let alphabethArr = [];
+
+  [...Array(122)].forEach((e, i) => {
+    alphabethArr.push(String.fromCharCode(++i));
+  });
+
+  const AlphabethArr = alphabethArr
+    .slice(96, 122)
+    .sort(() => Math.random() - Math.random());
+
+  const uppercaseFuc = () => {
+    let uppercaseFuc = [...AlphabethArr].splice(0, inputValue);
+    return uppercaseFuc.join("").toString().toUpperCase();
+  };
+
+  const lowercaseFuc = () => {
+    let uppercaseFuc = [...AlphabethArr].splice(0, inputValue);
+    return uppercaseFuc.join("").toString().toLowerCase();
+  };
+
+  const lowerAndupperCaseFuc = () => {
+    let arr = [...AlphabethArr].splice(0, inputValue);
+    let arr2 = [...AlphabethArr].splice(0, arr.length - 1);
+    let upper = arr2.map((item) => {
+      return item.toUpperCase();
+    });
+    let newArr = [...upper, ...arr];
+    return newArr.sort(() => Math.random() - Math.random());
+  };
+
+  const numbersGenFunc = () => {
+    let val = Math.floor(inputValue / 2);
+    const newArr = lowerAndupperCaseFuc().slice(0, val);
+
+    let arr = [];
+    let numbers = [...Array(100)].forEach((e, i) => {
+      arr.push(++i);
+    });
+    let array = arr.slice(0, val).join("");
+    let ar = [...newArr, ...array];
+    return ar.sort(() => Math.random() - Math.random());
+  };
+
+  const generatecode = () => {
+    if (upperCase && lowerCase && numbers == true) {
+      return numbersGenFunc().join("");
+    } else if (upperCase && lowerCase == true) {
+      return lowerAndupperCaseFuc().join("");
+    } else if (lowerCase) {
+      return lowercaseFuc();
+    } else if (upperCase) {
+      return uppercaseFuc();
+    }
+  };
+
+  console.log("Amin Titi =>", generatecode());
+
   return (
     <Container maxWidth="xl" className={classes.root}>
-      <CodeResult />
+      <CodeResult generatecode={generatecode} />
       <Paper className={classes.box}>
         <Slider inputValue={inputValue} setInputValue={setInputValue} />
         <CheckBox

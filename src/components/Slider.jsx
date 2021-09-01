@@ -89,10 +89,10 @@ export default function CustomizedSlider({ inputValue, setInputValue }) {
         <div className={classes.wrap}>
           <PrettoSlider
             onChange={(_, value) => setInputValue(value)}
-            defaultValue={15}
+            defaultValue={8}
             valueLabelDisplay="auto"
             aria-label="pretto slider"
-            min={5}
+            min={8}
             max={50}
           />
         </div>
