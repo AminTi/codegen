@@ -32,18 +32,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CodeResult = ({ generatePassword }) => {
+const CodeResult = ({ PassWordValue, clickHandler, copyClick }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
-      <Typography className={classes.typo}>
-        {null || generatePassword()}
-      </Typography>
+      <Typography className={classes.typo}>{null || PassWordValue}</Typography>
       <div className={classes.box}>
-        <IconButton>
+        <IconButton onClick={clickHandler}>
           <CachedIcon />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={copyClick}>
           <FileCopyIcon />
         </IconButton>
       </div>

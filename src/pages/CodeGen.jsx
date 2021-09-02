@@ -39,6 +39,7 @@ const CodeGen = () => {
   const [lowerCase, setLowercase] = useState(false);
   const [numbers, setNumbers] = useState(false);
   const [symbols, setSymbols] = useState(false);
+  const [PassWordValue, setPassWordValue] = useState("");
 
   let alphabethArr = [];
   [...Array(122)].forEach((e, i) => {
@@ -94,11 +95,22 @@ const CodeGen = () => {
     return retVal;
   };
 
-  console.log(generatePassword());
+  const clickHandler = () => {
+    setPassWordValue(generatePassword());
+    console.log(PassWordValue);
+  };
+
+  const copyClick = () => {
+    navigator.clipboard.writeText(PassWordValue);
+  };
 
   return (
     <Container maxWidth="xl" className={classes.root}>
-      <CodeResult generatePassword={generatePassword} />
+      <CodeResult
+        PassWordValue={PassWordValue}
+        clickHandler={clickHandler}
+        copyClick={copyClick}
+      />
       <Paper className={classes.box}>
         <Slider inputValue={inputValue} setInputValue={setInputValue} />
         <CheckBox
@@ -110,7 +122,7 @@ const CodeGen = () => {
         <CheckBox text={"Numbers"} check={numbers} setCheck={setNumbers} />
         <CheckBox text={"Symbols"} check={symbols} setCheck={setSymbols} />
       </Paper>
-      <Button text={"Generate"} />
+      <Button text={"Generate"} clickHandler={clickHandler} />
     </Container>
   );
 };
