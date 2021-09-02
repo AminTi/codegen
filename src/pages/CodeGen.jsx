@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CodeGen = () => {
   const classes = useStyles();
-  const [inputValue, setInputValue] = useState(15);
+  const [inputValue, setInputValue] = useState(8);
 
   const [upperCase, setUppercase] = useState(false);
   const [lowerCase, setLowercase] = useState(false);

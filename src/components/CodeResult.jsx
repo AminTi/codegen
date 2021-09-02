@@ -23,12 +23,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     padding: "5px 10px",
+    width: "100%",
+    border: "hidden",
   },
   box: {
     marginLeft: "auto",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    outline: "none",
   },
 }));
 
@@ -36,11 +39,13 @@ const CodeResult = ({ PassWordValue, clickHandler, copyClick }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
-      <Typography className={classes.typo}>{null || PassWordValue}</Typography>
       <div className={classes.box}>
         <IconButton onClick={clickHandler}>
           <CachedIcon />
         </IconButton>
+      </div>
+      <input className={classes.typo} value={PassWordValue} />
+      <div className={classes.box}>
         <IconButton onClick={copyClick}>
           <FileCopyIcon />
         </IconButton>

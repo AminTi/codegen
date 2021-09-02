@@ -93,7 +93,7 @@ export default function CustomizedSlider({ inputValue, setInputValue }) {
             valueLabelDisplay="auto"
             aria-label="pretto slider"
             min={8}
-            max={28}
+            max={50}
           />
         </div>
       </div>
