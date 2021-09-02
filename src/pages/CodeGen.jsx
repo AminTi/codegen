@@ -46,7 +46,7 @@ const CodeGen = () => {
   });
 
   const AlphabethAndNumber = [];
-  [...Array(100)].forEach((e, i) => {
+  [...Array(20)].forEach((e, i) => {
     AlphabethAndNumber.push(++i);
   });
 
@@ -59,6 +59,22 @@ const CodeGen = () => {
       return newArr.join("");
     } else if (upperCase && numbers == true) {
       let arr = alphabethArr.slice(96, 122).join("").toUpperCase();
+      let newArr = [...arr, ...AlphabethAndNumber].sort(
+        () => Math.random() - Math.random()
+      );
+      return newArr.join("");
+    } else if (numbers && symbols == true) {
+      let arr = alphabethArr.slice(31, 99).join("").toLowerCase();
+      let newArr = [...arr, ...AlphabethAndNumber].sort(
+        () => Math.random() - Math.random()
+      );
+      return newArr.join("");
+    } else if (symbols == true) {
+      let arr = alphabethArr.slice(31, 99).join("").toLowerCase();
+      let newArr = [...arr].sort(() => Math.random() - Math.random());
+      return newArr.join("");
+    } else if (numbers == true) {
+      let arr = alphabethArr.slice(96, 122).join("");
       let newArr = [...arr, ...AlphabethAndNumber].sort(
         () => Math.random() - Math.random()
       );
