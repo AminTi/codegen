@@ -87,6 +87,8 @@ const CodeGen = () => {
     }
   };
 
+  //
+
   const generatePassword = () => {
     let retVal = "";
     let length = inputValue;
