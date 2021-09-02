@@ -80,6 +80,8 @@ const CodeGen = () => {
         () => Math.random() - Math.random()
       );
       return newArr.join("");
+    } else if (upperCase == true) {
+      return alphabethArr.slice(96, 122).join("").toUpperCase();
     } else {
       return alphabethArr.slice(96, 122).join("");
     }
