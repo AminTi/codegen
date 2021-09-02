@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
       minWidth: "90%",
       marginTop: "8%",
     },
+    borderBottom: `8px solid ${color.green}`,
   },
   typo: {
     display: "flex",
@@ -31,13 +32,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CodeResult = ({ generatecode }) => {
+const CodeResult = ({ generatePassword }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
       <Typography className={classes.typo}>
-        {" "}
-        {null || generatecode()}
+        {null || generatePassword()}
       </Typography>
       <div className={classes.box}>
         <IconButton>

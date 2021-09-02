@@ -40,77 +40,133 @@ const CodeGen = () => {
   const [numbers, setNumbers] = useState(false);
   const [symbols, setSymbols] = useState(false);
 
-  const symbolsArr = ["!", "#", "€", "%", "&", "/", "=", "+", "?"];
-  let alphabethArr = [];
+  // const symbolsArr = ["!", "#", "€", "%", "&", "/", "=", "+", "?"];
+  // let alphabethArr = [];
 
+  // [...Array(122)].forEach((e, i) => {
+  //   alphabethArr.push(String.fromCharCode(++i));
+  // });
+
+  // const AlphabethArr = alphabethArr
+  //   .slice(96, 122)
+  //   .sort(() => Math.random() - Math.random());
+
+  // const uppercaseFuc = () => {
+  //   let uppercaseFuc = [...AlphabethArr].splice(0, inputValue);
+  //   return uppercaseFuc.join("").toString().toUpperCase();
+  // };
+
+  // const lowercaseFuc = () => {
+  //   let uppercaseFuc = [...AlphabethArr].splice(0, inputValue);
+  //   return uppercaseFuc.join("").toString().toLowerCase();
+  // };
+
+  // const symbolLowerCase = () => {
+  //   let val = Math.floor(inputValue / 2);
+  //   let arr = [...AlphabethArr].splice(0, val);
+  //   let arr2 = [...symbolsArr].splice(0, val);
+  //   let shuffel = arr2.sort(() => Math.random() - Math.random());
+  //   let upper = arr2.map((item) => {
+  //     return item.toUpperCase();
+  //   });
+  //   let newArr = [...upper, ...shuffel];
+  //   return newArr.sort(() => Math.random() - Math.random());
+  // };
+
+  // const lowerAndupperCaseFuc = () => {
+  //   let val = Math.floor(inputValue / 2);
+  //   let arr = [...AlphabethArr].splice(0, val);
+  //   let arr2 = [...AlphabethArr].splice(0, val);
+  //   let upper = arr2.map((item) => {
+  //     return item.toUpperCase();
+  //   });
+  //   let newArr = [...upper, ...arr];
+  //   return newArr.sort(() => Math.random() - Math.random());
+  // };
+
+  // const numbersGenFunc = () => {
+  //   let val = Math.floor(inputValue / 2);
+  //   const newArr = lowerAndupperCaseFuc().slice(0, val);
+  //   let arr = [];
+  //   let numbers = [...Array(100)].forEach((e, i) => {
+  //     arr.push(++i);
+  //   });
+  //   let array = arr.slice(0, val).join("");
+  //   let ar = [...newArr, ...array];
+  //   return ar.sort(() => Math.random() - Math.random());
+  // };
+
+  // const symbolsGenFunc = () => {
+  //   let val = Math.floor(inputValue / 2);
+  //   let newArr = numbersGenFunc().slice(0, val);
+  //   let symbolsARr = symbolsArr.sort(() => Math.random() - Math.random());
+  //   let symbol = symbolsARr.slice(0, val);
+  //   let ar = [...symbol, ...newArr].sort(() => Math.random() - Math.random());
+  //   return ar;
+  // };
+
+  // const generatecode = () => {
+  //   if (upperCase && lowerCase && numbers && symbols == true) {
+  //     return symbolsGenFunc().join("");
+  //   } else if (upperCase && lowerCase && numbers == true) {
+  //     return numbersGenFunc().join("");
+  //   } else if (lowerCase && symbols == true) {
+  //     return symbolLowerCase().join("");
+  //   } else if (upperCase && lowerCase == true) {
+  //     return lowerAndupperCaseFuc().join("");
+  //   } else if (lowerCase) {
+  //     return lowercaseFuc();
+  //   } else if (upperCase) {
+  //     return uppercaseFuc();
+  //   }
+  // };
+
+  // console.log("Amin Titi =>", generatecode());
+
+  // const symbolsArr = ["!", "#", "€", "%", "&", "/", "=", "+", "?"];
+  let alphabethArr = [];
   [...Array(122)].forEach((e, i) => {
     alphabethArr.push(String.fromCharCode(++i));
   });
 
-  const AlphabethArr = alphabethArr
-    .slice(96, 122)
-    .sort(() => Math.random() - Math.random());
+  const AlphabethAndNumber = [];
+  [...Array(100)].forEach((e, i) => {
+    AlphabethAndNumber.push(++i);
+  });
 
-  const uppercaseFuc = () => {
-    let uppercaseFuc = [...AlphabethArr].splice(0, inputValue);
-    return uppercaseFuc.join("").toString().toUpperCase();
-  };
-
-  const lowercaseFuc = () => {
-    let uppercaseFuc = [...AlphabethArr].splice(0, inputValue);
-    return uppercaseFuc.join("").toString().toLowerCase();
-  };
-
-  const lowerAndupperCaseFuc = () => {
-    let arr = [...AlphabethArr].splice(0, inputValue);
-    let arr2 = [...AlphabethArr].splice(0, arr.length - 1);
-    let upper = arr2.map((item) => {
-      return item.toUpperCase();
-    });
-    let newArr = [...upper, ...arr];
-    return newArr.sort(() => Math.random() - Math.random());
-  };
-
-  const numbersGenFunc = () => {
-    let val = Math.floor(inputValue / 2);
-    const newArr = lowerAndupperCaseFuc().slice(0, val);
-    let arr = [];
-    let numbers = [...Array(100)].forEach((e, i) => {
-      arr.push(++i);
-    });
-    let array = arr.slice(0, val).join("");
-    let ar = [...newArr, ...array];
-    return ar.sort(() => Math.random() - Math.random());
-  };
-
-  const symbolsGenFunc = () => {
-    let val = Math.floor(inputValue / 2);
-    let newArr = numbersGenFunc().slice(0, val);
-    let symbolsARr = symbolsArr.sort(() => Math.random() - Math.random());
-    let symbol = symbolsARr.slice(0, val);
-    let ar = [...symbol, ...newArr].sort(() => Math.random() - Math.random());
-    return ar;
-  };
-
-  const generatecode = () => {
-    if (upperCase && lowerCase && numbers && symbols == true) {
-      return symbolsGenFunc().join("");
-    } else if (upperCase && lowerCase && numbers == true) {
-      return numbersGenFunc().join("");
-    } else if (upperCase && lowerCase == true) {
-      return lowerAndupperCaseFuc().join("");
-    } else if (lowerCase) {
-      return lowercaseFuc();
-    } else if (upperCase) {
-      return uppercaseFuc();
+  const check = () => {
+    if (upperCase && numbers && symbols == true) {
+      let arr = alphabethArr.slice(31, 99).join("").toUpperCase();
+      let newArr = [...arr, ...AlphabethAndNumber].sort(
+        () => Math.random() - Math.random()
+      );
+      return newArr.join("");
+    } else if (upperCase && numbers == true) {
+      let arr = alphabethArr.slice(96, 122).join("").toUpperCase();
+      let newArr = [...arr, ...AlphabethAndNumber].sort(
+        () => Math.random() - Math.random()
+      );
+      return newArr.join("");
+    } else {
+      return alphabethArr.slice(96, 122).join("");
     }
   };
 
-  console.log("Amin Titi =>", symbolsGenFunc());
+  const generatePassword = () => {
+    let retVal = "";
+    let length = inputValue;
+    let charset = check() && check();
+    for (let i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.random() * n);
+    }
+    return retVal;
+  };
+
+  console.log(generatePassword());
 
   return (
     <Container maxWidth="xl" className={classes.root}>
-      <CodeResult generatecode={generatecode} />
+      <CodeResult generatePassword={generatePassword} />
       <Paper className={classes.box}>
         <Slider inputValue={inputValue} setInputValue={setInputValue} />
         <CheckBox
@@ -118,11 +174,7 @@ const CodeGen = () => {
           check={upperCase}
           setCheck={setUppercase}
         />
-        <CheckBox
-          text={"lowerCase"}
-          check={lowerCase}
-          setCheck={setLowercase}
-        />
+
         <CheckBox text={"Numbers"} check={numbers} setCheck={setNumbers} />
         <CheckBox text={"Symbols"} check={symbols} setCheck={setSymbols} />
       </Paper>
